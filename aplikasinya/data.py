@@ -2,7 +2,7 @@ sesi = {}
 
 daftar_user = {
     'admintofu' : {
-        'akses' : 'admin',
+        'role' : 'admin',
         'password' : 'admin123',
         'saldo' : 0,
         'membership' : {
@@ -14,7 +14,7 @@ daftar_user = {
         'keranjang' : None
     },
     'usertofu1' : {
-        'akses' : 'pengguna',
+        'role' : 'pengguna',
         'pasword' : 'user123',
         'saldo' : 1000000,
         'membership' : {
@@ -30,7 +30,7 @@ daftar_user = {
         ]               #user 2 tidak bisa bayar bukunya/di-skip di kasir,
     },                  #walau buku tsb. masih ada di keranjang (kayak shopee)
     'usertofu2' : {
-        'akses' : 'pengguna',
+        'role' : 'pengguna',
         'password' : 'user234',
         'saldo' : 50000,
         'membership' : {

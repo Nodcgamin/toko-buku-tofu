@@ -7,8 +7,8 @@ import menu_user
 
 
 def jalankan_menu(username):
-    """Membuka menu sesuai akses akun yang sedang login."""
-    if data.daftar_user[username]["akses"] == "admin":
+    """Membuka menu sesuai role akun yang sedang login."""
+    if data.daftar_user[username]["role"] == "admin":
         menu_admin.menu_admin()
     else:
         menu_user.menu_user()
