@@ -8,11 +8,10 @@ import menu_user
 
 def jalankan_menu(username):
     """Membuka menu sesuai role akun yang sedang login."""
-    if data.akun[username]["role"] == "admin":
+    if data.daftar_user[username]["role"] == "admin":
         menu_admin.menu_admin()
     else:
         menu_user.menu_user()
-
 
 def main():
     print("Selamat datang di Toko Buku!")
