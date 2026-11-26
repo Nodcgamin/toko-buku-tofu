@@ -31,30 +31,20 @@ def tambah_keranjang(sesi, daftar):
     print(f"\nBuku {jawaban['pilih_buku']} telah masuk ke keranjang!")
 
 def hapus_keranjang(sesi):
-    isi_keranjang =[]
-    for buku in sesi['data']['keranjang']:
-        isi_keranjang.append(daftar_buku[buku]['identitas']['judul'])
-    
     pertanyaan = [
         inquirer.List(
             name = 'pilih_buku',
             message = 'Pilih buku untuk dihapus.',
-            choices = isi_keranjang + ['Kembali']
+            choices = [daftar_buku[idbuku]['identitas']['judul'] for idbuku in sesi['data']['keranjang'] ] + ['Kembali']
         )
     ]
     jawaban = inquirer.prompt(pertanyaan)
-    buku = jawaban['pilih_buku']
-    if not jawaban or buku == 'Kembali':
+    if not jawaban or jawaban['pilih_buku'] == 'Kembali':
         return
-    sesi['data']['keranjang'].pop(buku)
-    print(f"\nBuku {buku} dihapus dari keranjang!")
-
-clear_terminal()
-tampilkan_keranjang(sesi)
-tambah_keranjang(sesi, daftar_buku)
-tampilkan_keranjang(sesi)
-hapus_keranjang(sesi)
-tampilkan_keranjang(sesi)
+    for idbuku in daftar_buku:
+        if jawaban['pilih_buku'] == daftar_buku[idbuku]['identitas']['judul']:
+            sesi['data']['keranjang'].remove(idbuku)
+            print(f"\nBuku {jawaban['pilih_buku']} dihapus dari keranjang!")
 
 def pembayaran():
     pass
