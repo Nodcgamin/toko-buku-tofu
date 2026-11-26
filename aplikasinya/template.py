@@ -1,3 +1,4 @@
+from data import daftar_buku
 from utils import jadikan_rupiah
 
 TABEL_BUKU = [
@@ -21,3 +22,8 @@ TABEL_KONTEN_BUKU = [
 ]
 
 TABEL_STATUS_BUKU = TABEL_BUKU[2:4]
+
+TABEL_KERANJANG = [
+    ("Nama Pengguna", lambda key, value: key),
+    ("Keranjang", lambda key, value: "; ".join(daftar_buku[idbuku]['identitas']['judul'] for idbuku in value['keranjang'])) #isi keranjang adalah idbuku
+]

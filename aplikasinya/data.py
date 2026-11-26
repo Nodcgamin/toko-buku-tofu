@@ -1,4 +1,4 @@
-sesi = {}
+sesi = {'username':None} #simpan dict dg. username sebagai key
 
 daftar_user = {
     'admintofu' : {
@@ -15,7 +15,7 @@ daftar_user = {
     },
     'usertofu1' : {
         'role' : 'pengguna',
-        'pasword' : 'user123',
+        'password' : 'user123',
         'saldo' : 1000000,
         'membership' : {
             'aktif' : True,
@@ -26,7 +26,7 @@ daftar_user = {
             'D001'
         ],
         'keranjang' : [ #buku yg sama bisa masuk keranjang berbeda dalam satu waktu,
-            'B001'      #jika user1 membayar buku lebih dahulu, ketersediaan buku berubah False
+            'B001','B002'      #jika user1 membayar buku lebih dahulu, ketersediaan buku berubah False
         ]               #user 2 tidak bisa bayar bukunya/di-skip di kasir,
     },                  #walau buku tsb. masih ada di keranjang (kayak shopee)
     'usertofu2' : {
@@ -71,6 +71,23 @@ daftar_buku = {
             'penerbit' : 'Viz Media',
             'bahasa' : 'Inggris',
             'seri' : '2'
+        },
+        'konten' : {
+            'genre' : 'fiksi fantasi',
+            'target_usia' : 'remaja',
+            'kata_kunci' : ['manga', 'samurai', 'alien']
+        },
+        'harga' : 20000,
+        'ketersediaan' : True
+    },
+    'B003' : {
+        'identitas' : {
+            'judul' : 'Gintama, Volume 3',
+            'pengarang' : 'Hideaki Sorachi',
+            'tahun_terbit' : '2007',
+            'penerbit' : 'Viz Media',
+            'bahasa' : 'Inggris',
+            'seri' : '3'
         },
         'konten' : {
             'genre' : 'fiksi fantasi',

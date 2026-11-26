@@ -36,6 +36,21 @@ def validasi_input(msg='Masukkan input.'):
         print("Nilai tidak boleh kosong!")
         return
 
+def konfirmasi(msg='Konfirmasi aksi.'):
+    pertanyaan = [
+        inquirer.List(
+            name = 'pilih_konfirmasi',
+            message = msg,
+            choices = ['Ya', 'Tidak']
+        )
+    ]
+    jawaban = inquirer.prompt(pertanyaan)
+    konfirmasi = jawaban['pilih_konfirmasi']
+    if not jawaban or konfirmasi == 'Tidak':
+        print("Membatalkan...")
+        return
+    return konfirmasi
+
 def jadikan_rupiah(angka):
     return "Rp" + f"{angka:,}".replace(",", ".")
 
@@ -52,7 +67,7 @@ def buat_tabel(data, baris):
 def tampilkan_tabel(data, baris, kapasitas_halaman=10, berhalaman=True):
     judul, data_kolom = buat_tabel(data, baris)
     if not data_kolom:
-        print("Data masih kosong!")
+        print("Masih kosong!")
         return
 
     if not berhalaman:
