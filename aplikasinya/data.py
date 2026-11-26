@@ -1,4 +1,4 @@
-sesi = {'username':None} #simpan dict dg. username sebagai key
+sesi = {'username':None, 'role':None, 'data':None} #simpan dict dg. username sebagai key
 
 daftar_user = {
     'admintofu' : {
@@ -26,7 +26,7 @@ daftar_user = {
             'D001'
         ],
         'keranjang' : [ #buku yg sama bisa masuk keranjang berbeda dalam satu waktu,
-            'B001','B002'      #jika user1 membayar buku lebih dahulu, ketersediaan buku berubah False
+            'B001','B002'      #jika user1 membayar buku lebih dahulu, tersedia buku berubah False
         ]               #user 2 tidak bisa bayar bukunya/di-skip di kasir,
     },                  #walau buku tsb. masih ada di keranjang (kayak shopee)
     'usertofu2' : {
@@ -60,8 +60,9 @@ daftar_buku = {
             'target_usia' : 'remaja',
             'kata_kunci' : ['manga', 'samurai', 'alien']
         },
+        'diskon_universal' : None,
         'harga' : 20000,
-        'ketersediaan' : True
+        'tersedia' : True
     },
     'B002' : {
         'identitas' : {
@@ -77,8 +78,9 @@ daftar_buku = {
             'target_usia' : 'remaja',
             'kata_kunci' : ['manga', 'samurai', 'alien']
         },
+        'diskon_universal' : ['D002'],
         'harga' : 20000,
-        'ketersediaan' : True
+        'tersedia' : True
     },
     'B003' : {
         'identitas' : {
@@ -94,15 +96,26 @@ daftar_buku = {
             'target_usia' : 'remaja',
             'kata_kunci' : ['manga', 'samurai', 'alien']
         },
+        'diskon_universal' : ['D002', 'D003'],
         'harga' : 20000,
-        'ketersediaan' : True
+        'tersedia' : True
     }
 }
 
-diskon = {
+daftar_diskon = {
     'D001' : {
         'nama_diskon' : 'Diskon 50% Pengguna Baru',
         'nilai' : 0.50,
+        'durasi' : '7 hari', #durasi setelah aktivasi
+    },
+    'D002' : {
+        'nama_diskon' : "Diskon 75% Selector's Pick",
+        'nilai' : 0.75,
+        'durasi' : '7 hari', #durasi setelah aktivasi
+    },
+    'D003' : {
+        'nama_diskon' : 'Diskon 26%, 26 November',
+        'nilai' : 0.25,
         'durasi' : '7 hari', #durasi setelah aktivasi
     }
 }

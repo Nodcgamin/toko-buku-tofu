@@ -5,7 +5,8 @@ TABEL_BUKU = [
     ("Judul", lambda key, value: value['identitas']['judul']), #lambda key, value: mengembalikan
     ("Pengarang", lambda key, value: value['identitas']['pengarang']), #apapun setelah ":"
     ("Harga", lambda key, value: jadikan_rupiah(value['harga'])),
-    ("Tersedia?", lambda key, value: '✅' if value['ketersediaan'] else '❌')
+    ("Diskon", lambda key, value: ";".join(diskon for diskon in value['diskon_universal']))
+    ("Tersedia?", lambda key, value: '✅' if value['tersedia'] else '❌')
 ]
 
 TABEL_IDENTITAS_BUKU = TABEL_BUKU[:2] + [
